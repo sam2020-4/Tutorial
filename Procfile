@@ -1,0 +1,1 @@
+web: gunicorn tutorialprj.wsgi --log-file -
