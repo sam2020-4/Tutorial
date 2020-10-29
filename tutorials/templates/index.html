@@ -1,104 +1,34 @@
-{% extends 'base.html'%}
-{% load bootstrap4 %}
-
+{%extends 'base.html'%}
 {% block content %}
-<!--Carousel Wrapper-->
-<div id="carousel-example-1" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
 
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-        <li data-target="#carousel-example-1" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-1" data-slide-to="1"></li>
-        <li data-target="#carousel-example-1" data-slide-to="2"></li>
-    </ol>
-    <!--/.Indicators-->
+<div class="landing" id="first"> 
+          
+    <div class="rgba-indigo-light full-bg-img flex-center mask white-text" style="height: 90vh;">           
 
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-
-        <!--First slide-->
-        <div class="carousel-item active">
-        <!--Mask-->
-        <div class="view">
-            <div class="full-bg-img flex-center mask rgba-indigo-light white-text">
-            <ul class="animated fadeInUp col-md-12 list-unstyled list-inline">
-                <li>
-                <h1 class="font-weight-bold text-uppercase">Material Design for Bootstrap 4</h1>
-                </li>
-                <li>
-                <p class="font-weight-bold text-uppercase py-4">The most powerful and free UI KIT for Bootstrap</p>
-                </li>
-                <li class="list-inline-item">
-                <a target="_blank" href="https://mdbootstrap.com/getting-started/" class="btn btn-unique btn-lg btn-rounded mr-0">Sign up!</a>
-                </li>
-                <li class="list-inline-item">
-                <a target="_blank" href="https://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-cyan btn-lg btn-rounded ml-0">Learn more</a>
-                </li>
-            </ul>
-            </div>
-        </div>
-        <!--/.Mask-->
-        </div>
-        <!--/.First slide-->
-
-        <!--Second slide -->
-        <div class="carousel-item">
-        <!--Mask-->
-        <div class="view">
-            <div class="full-bg-img flex-center mask rgba-purple-light white-text">
-            <ul class="animated fadeInUp col-md-12 list-unstyled">
-                <li>
-                <h1 class="font-weight-bold text-uppercase">Lots of tutorials at your disposal</h1>
-                </li>
-                <li>
-                <p class="font-weight-bold text-uppercase py-4">And all of them are FREE!</p>
-                </li>
-                <li>
-                <a target="_blank" href="https://mdbootstrap.com/bootstrap-tutorial/" class="btn btn-primary btn-rounded btn-lg">Start learning</a>
-                </li>
-            </ul>
-            </div>
-        </div>
-        <!--/.Mask-->
-        </div>
-        <!--/.Second slide -->
-
-        <!--Third slide-->
-        <div class="carousel-item">
-        <!--Mask-->
-        <div class="view">
-            <div class="full-bg-img flex-center mask rgba-blue-light white-text">
-            <ul class="animated fadeInUp col-md-12 list-unstyled">
-                <li>
-                <h1 class="font-weight-bold text-uppercase">Visit our support forum</h1></li>
-                <li>
-                <p class="font-weight-bold text-uppercase py-4">Our community can help you with any question</p>
-                </li>
-                <li>
-                <a target="_blank" href="https://mdbootstrap.com/forums/forum/support/" class="btn btn-lg btn-indigo btn-rounded">Support forum</a>
-                </li>
-            </ul>
-            </div>
-        </div>
-        <!--/.Mask-->
-        </div>
-        <!--/.Third slide-->
-
-    </div>
-    <!--/.Slides-->
-
-    <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-1" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-example-1" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
+        <ul class="animated fadeInUp col-md-12 list-unstyled list-inline">
+            <li>
+            <h1 class="font-weight-bold text-uppercase">one-stope oneline tutorial Website</h1>
+            </li>
+            <li>
+            <p class="font-weight-bold text-uppercase py-4">get all the learning resources with us here</p>
+            </li>
+            <li class="list-inline-item">
+            <a target="_blank" href="/accounts/register" class="btn btn-unique btn-lg btn-rounded mr-0">Sign up!</a>
+            </li>
+            <li class="list-inline-item">
+            <a target="_blank" href="https://sam2020-4.github.io/Github/" class="btn btn-cyan btn-lg btn-rounded ml-0">Learn more</a>
+            </li>
+        </ul>                  
+    </div> 
 </div>
-<!--/.Carousel Wrapper-->
 
+<hr>
+
+<!-- project section -->
+<div class="container-fluid">
+    <div class="mb-2 pb-2 pl-4 pr-2 ml-4 mr-1">
+        <h4 class="display-35 font-weight-bold"> view all learning articles</h4>:
+    </div>
+
+</div>
 {% endblock %}
-
