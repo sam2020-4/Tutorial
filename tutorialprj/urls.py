@@ -19,7 +19,6 @@ from django.contrib.auth import views
 from registration.backends.simple.views import RegistrationView
 from tutorials.forms import RegisterForm
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('tutorials.urls')),

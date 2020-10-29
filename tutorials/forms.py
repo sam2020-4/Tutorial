@@ -6,12 +6,12 @@ from registration.forms import RegistrationForm
 from crispy_forms.helper import FormHelper
 
 
-class NewtutorialForm(forms.ModelForm):
+class NewProjectForm(forms.ModelForm):
     class Meta:
         model = Projects
         exclude = ['Author', 'pub_date', 'author_profile']
         widgets = {
-          'description': forms.Textarea(attrs={'rows':4, 'cols':10,}),
+          'project_description': forms.Textarea(attrs={'rows':4, 'cols':10,}),
         }
         
 
@@ -25,12 +25,12 @@ class ProfileUpdateForm(forms.ModelForm):
         
         
 class RegisterForm(RegistrationForm):
-    first_name = forms.CharField(max_length=255)
-    last_name = forms.CharField(max_length=255)
+    username = forms.CharField(max_length=255)
+    
     
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2',)
+        fields = ('username', 'email', 'password1', 'password2',)
         
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
