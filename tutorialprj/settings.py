@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+
 
 
 
@@ -36,7 +34,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'turorials',
+    'tutorials',
+    'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,11 +80,12 @@ WSGI_APPLICATION = 'tutorialprj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'tutorialdb',
+        'USER': 'moringa',
+    'PASSWORD':'sam2020',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -123,11 +123,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-cloudinary.config( 
-  cloud_name = config('Cloud_name'), 
-  api_key = config('API_Key'),
-  api_secret = config('API_Secret')
-)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
