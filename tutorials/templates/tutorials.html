@@ -17,10 +17,11 @@
 
     <!-- displaying News articles -->
     <div class="col-md-8 ">
-      <h2 class="text-center"> {{ news_item.title }} </h2>
-      <p>{{ news_item.post }} <a href="#" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Read More</a></p>
-      <p> Story Author: {{ news_item.editor }}</p>
-      <p>Date published: {{ news_item.pub_date }}</p>
+      <h2 class="text-center"> {{ tutorial_item.title }} </h2>
+      <p>{{ tutorial_item.description }} <a href="#" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Read More</a></p>
+      <p>{{ tutorial_item.tutorial_content }}</p>
+      <p> Tutorial Author: {{ tutorial_item.editor }}</p>
+      <p>Date published: {{ tutorial_item.pub_date }}</p>
     </div>
   </div>
   <hr>

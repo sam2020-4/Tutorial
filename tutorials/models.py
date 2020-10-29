@@ -23,53 +23,52 @@ class Profile(models.Model):
         verbose_name = 'Profile'
         verbose_name_plural = 'Profiles'        
         
-class Projects(models.Model):
-    project_title = models.CharField(max_length=255)
-    project_image = CloudinaryField('images')
-    project_description = models.TextField()
+class Tutorial(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField(max_length=20)
+    tutorial_image = CloudinaryField('images')    
+    tutorial_content = models.TextField(max_length=255)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     pub_date = models.DateTimeField(auto_now_add=True)
-    Author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
-    author_profile = models.ForeignKey(Profile,on_delete=models.CASCADE, blank=True, default='1')
-    link = models.URLField()
-    
-        
-    def save_project(self):
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+          
+    def save_tutorial(self):
         self.save()
     
-    def delete_project(self):
+    def delete_tutorial(self):
         self.delete()
         
     @classmethod
-    def get_projects(cls):
-        projects = cls.objects.all()
-        return projects
+    def get_tutorial(cls):
+        tutorials = cls.objects.all()
+        return tutorials
     
     @classmethod
-    def search_projects(cls, search_term):
-        projects = cls.objects.filter(project_title__icontains=search_term)
-        return projects
+    def search_tutorials(cls, search_term):
+        tutorials = cls.objects.filter(title__icontains=search_term)
+        return tutorials
     
     
     @classmethod
     def get_by_author(cls, Author):
-        projects = cls.objects.filter(Author=Author)
-        return projects
-    
+        tutorials = cls.objects.filter(Author=Author)
+        return tutorials    
     
     @classmethod
-    def get_project(request, id):
+    def get_tutorial(request, id):
         try:
-            project = Projects.objects.get(pk = id)
+            tutorial = tutorials.objects.get(pk = id)
             
         except ObjectDoesNotExist:
             raise Http404()
         
-        return project
+        return tutorial
     
     def __str__(self):
-        return self.project_title
+        return self.title
     
     class Meta:
         ordering = ['-pub_date']
-        verbose_name = 'My Project'
-        verbose_name_plural = 'Projects'
+        verbose_name = 'My Tutorial'
+        verbose_name_plural = 'Tutorials'
