@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+
+{% block content %} 
+{{ block.super}}
+
+<div class="container">   
+
+  {% for tutorial_item in tutorials %}  
+  <!-- displaying image uploaded -->
+  <hr class="mt-5 mb-5">
+  <div class="row">
+    <!--Display news Article images  -->
+    <div class="col-md-4">
+      <img src="{{ tutorial_item.tutorial_image.url}}" class="img-responsive" alt="Image">
+    </div>
+
+    <!-- displaying News articles -->
+    <div class="col-md-8 ">
+      <h2 class="text-center"> {{ news_item.title }} </h2>
+      <p>{{ news_item.post }} <a href="#" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Read More</a></p>
+      <p> Story Author: {{ news_item.editor }}</p>
+      <p>Date published: {{ news_item.pub_date }}</p>
+    </div>
+  </div>
+  <hr>
+  
+  {% empty %}
+  <div class="row">
+    <h2 class="text-center">There No tutorial Items</h2>
+  </div>
+  {% endfor %}
+
+  <br> <hr>  
+</div>
+{% endblock %}
