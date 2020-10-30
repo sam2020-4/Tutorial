@@ -6,10 +6,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', views.index, name= 'index'),
-    # url(r'^search/', views.search_tutorials, name='search_results'),
-    # url(r'^project/(\d+)', views.get_project, name='project_results'),
+    url(r'^search/', views.search_tutorials, name='search_results'),
+    url(r'^tutorial/(\d+)', views.get_tutorial, name='tutorial_results'),
     # url(r'^new/project$', views.new_project, name='new-project'),
-    # url(r'^accounts/profile/$', views.user_profiles, name='profile'),
+    url(r'^accounts/profile/$', views.user_profiles, name='profile'),        
 ]
 
 if settings.DEBUG:

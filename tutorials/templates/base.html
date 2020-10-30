@@ -7,9 +7,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% if title %}
-  <title>Tutorial-Web - {{title}}</title>
+  <title>TutorialWeb - {{title}}</title>
   {% else %}
-    <title> Tutorial-Web </title>
+    <title> TutorialWeb </title>
   {% endif %} 
 
   {% block styles %}    
@@ -34,8 +34,7 @@
         
     {%endblock%}
     {% block scripts %}
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
      <!-- JQuery -->
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -46,9 +45,8 @@
       <!-- MDB core JavaScript -->
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
-      <script type="text/javascript" src="{% static 'scripts.js' %}"></script>
+      <script type="text/javascript" src="{% static 'script.js' %}"></script>
     {% endblock %}
-
 
   <!-- Footer -->
   <footer class="page-footer font-small color-dark mt-4 pt-4">

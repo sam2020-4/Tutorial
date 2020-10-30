@@ -1,24 +1,25 @@
 {%extends 'base.html'%}
 {% block content %}
 
-<div class="landing" id="first"> 
+<div class="landing" id="first" > 
           
-    <div class="rgba-indigo-light full-bg-img flex-center mask white-text" style="height: 70vh;">           
+    <div class="rgba-indigo-light full-bg-img flex-center mask white-text pt=50" style="height: 70vh;">           
 
         <ul class="animated fadeInUp col-md-12 list-unstyled list-inline">
             <li>
-            <h1 class="displat-5 font-weight-bold text-uppercase">one-stope oneline tutorial Website</h1>
+            <h1 class=" display-7 font-weight-bold text-uppercase">one-stope-online tutorial Website</h1>
             </li>
             <li>
             <p class="font-weight-bold text-uppercase py-4">get all the learning resources with us here</p>
             </li>
             <li class="list-inline-item">
-            <a target="_blank" href="/accounts/register" class="btn btn-unique btn-lg btn-rounded mr-0">Sign up!</a>
+            <a target="_blank" href="/accounts/register" class="btn btn-unique btn-sm btn-rounded mr-0">Sign up!</a>
             </li>
             <li class="list-inline-item">
-            <a target="_blank" href="https://sam2020-4.github.io/Github/" class="btn btn-cyan btn-lg btn-rounded ml-0">Learn more</a>
-            </li>
-        </ul>                  
+            <a target="_blank" href="https://sam2020-4.github.io/Github/" class="btn btn-cyan btn-sm btn-rounded ml-0">Learn more</a>
+            </li>                      
+        </ul> 
+
     </div> 
 </div>
 
@@ -27,12 +28,54 @@
 <!-- project section -->
 <div class="container-fluid">
     <div class="mb-2 pb-2 pl-4 pr-2 ml-4 mr-1">
-        <h4 class="display-1 font-weight-bold"> view all learning articles</h4>:
-        <h4 class="display-1 font-weight-bold"> view all learning articles</h4>:
-        <h4 class="display-1 font-weight-bold"> view all learning articles</h4>:
+        <h4 class="display-35 font-weight-bold"> view all learning articles</h4>:
     </div>
+  
+      <div class="row pl-2 pr-2 ml-1 mr-1">
+          {% for tutorial_item in tutorials %}
+              <div class="col-lg-3">
+                  <div class="card-deck">
+                  
+                      <div class="card mb-2 mt-2">
+                        <!-- Card image -->
+                      <div class="view overlay zoom">
+                          {% if tutorial_item.tutorial_image %}
+                          <a href="/tutorial/{{tutorial_item.id}}">
+                          <img class="card-img-top" src="{{tutorial_item.tutorial_image.url}}" alt="{{ tutorial_item.title }}" height="100px">
+                          <!-- </a> -->
+                          {% else %}
+                          <a href="/tutorial/{{tutorial_item.id}}">
+                          <img  class="card-img-top" src="https://source.unsplash.com/1600x900/?fun,vacation" alt="{{ project_item.project_name }}">
+                          </a>
+                          {% endif %}
+                          
+                          <a href="/tutorial/{{tutorial_item.id}}">
+                            <div class="mask rgba-black-light">
+                                <!--  -->
+                            </div>
+                          </a>
+                        </div>
+                  
+                        <div class="card-body pr-2 pl-2 pr-2 mr-2">
+                          <h5 class="card-title ml-4">{{ tutorial_item.title }}</h5>
+                          <p>{{ tutorial_item.description}}</p>
+                          <div class="row ml-2">
+                            <div class="col-lg-6 dark-text">                               
+                              <small class="text-muted ml-2">
+                                <img src="{{ tutorial_item.author.profile.photo.url }}" alt="" class="rounded-circle img-fluid mr-1" style="width: 30px;">
+                                posted By: {{tutorial_item.author |upper}} </small>  
 
-    {% include "tutorial.html" %}
-
+                            </div>
+                            <div class="col-lg-6 dark-text d-flex justify-content-end"> <small> {{tutorial_item.pub_date|date:"d /m/Y"}} </small></div>
+                            
+                          </div>
+                        </div>                       
+                      </div>                    
+                  
+                    </div>
+                  <!-- end of card deck  -->  
+              </div>
+        {% endfor %}
+      </div>
 </div>
 {% endblock %}

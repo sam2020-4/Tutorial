@@ -94,6 +94,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'tutorialprj.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

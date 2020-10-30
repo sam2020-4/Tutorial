@@ -22,16 +22,22 @@ class Profile(models.Model):
     class Meta:
         verbose_name = 'Profile'
         verbose_name_plural = 'Profiles'        
-        
-class Tutorial(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField(max_length=20)
+
+STATUS = (
+    (0,"Draft"),
+    (1,"Publish")
+)
+
+class Tutorials(models.Model):
+    title = models.CharField(max_length=80)
+    description = models.TextField(max_length=150)
     tutorial_image = CloudinaryField('images')    
-    tutorial_content = models.TextField(max_length=255)
+    tutorial_content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     pub_date = models.DateTimeField(auto_now_add=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    status = models.IntegerField(choices=STATUS, default=0)
           
     def save_tutorial(self):
         self.save()
@@ -40,7 +46,7 @@ class Tutorial(models.Model):
         self.delete()
         
     @classmethod
-    def get_tutorial(cls):
+    def get_tutorials(cls):
         tutorials = cls.objects.all()
         return tutorials
     
@@ -51,14 +57,15 @@ class Tutorial(models.Model):
     
     
     @classmethod
-    def get_by_author(cls, Author):
-        tutorials = cls.objects.filter(Author=Author)
-        return tutorials    
+    def get_by_author(cls, author):
+        tutorials = cls.objects.filter(author=author)
+        return tutorials
+    
     
     @classmethod
     def get_tutorial(request, id):
         try:
-            tutorial = tutorials.objects.get(pk = id)
+            tutorial = Projects.objects.get(pk = id)
             
         except ObjectDoesNotExist:
             raise Http404()
